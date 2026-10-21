@@ -1,0 +1,45 @@
+{
+  "profiled_program": "scripts/mapreduce_s3_range.py",
+  "chunk_size_mib": 64,
+  "attempts": [
+    {
+      "attempt": 1,
+      "chunk_size_mib": 64,
+      "elapsed_seconds": 164.374,
+      "peak_rss_mib": 354.9,
+      "exit_code": 0,
+      "source_rows": 10205102,
+      "java_vacancies": 6100,
+      "distinct_skills": 1069,
+      "distinct_pairs": 15755,
+      "distinct_triples": 103138
+    },
+    {
+      "attempt": 2,
+      "chunk_size_mib": 64,
+      "elapsed_seconds": 174.596,
+      "peak_rss_mib": 354.79,
+      "exit_code": 0,
+      "source_rows": 10205102,
+      "java_vacancies": 6100,
+      "distinct_skills": 1069,
+      "distinct_pairs": 15755,
+      "distinct_triples": 103138
+    },
+    {
+      "attempt": 3,
+      "chunk_size_mib": 64,
+      "elapsed_seconds": 171.634,
+      "peak_rss_mib": 355.11,
+      "exit_code": 0,
+      "source_rows": 10205102,
+      "java_vacancies": 6100,
+      "distinct_skills": 1069,
+      "distinct_pairs": 15755,
+      "distinct_triples": 103138
+    }
+  ],
+  "average_elapsed_seconds": 170.201,
+  "maximum_observed_peak_rss_mib": 355.11,
+  "measurement_note": "Elapsed time includes process startup and S3 processing. RSS sampled every 10 ms; peak is the maximum observed process-tree RSS."
+}
