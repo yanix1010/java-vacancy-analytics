@@ -1,0 +1,261 @@
+{
+  "rows_scanned": 10205102,
+  "unique_vacancy_ids": 10205102,
+  "ids_with_multiple_rows": 0,
+  "extra_rows_for_repeated_ids": 0,
+  "missing_ids": 0,
+  "statuses": [
+    [
+      "not_active",
+      8764455
+    ],
+    [
+      "active",
+      1440647
+    ]
+  ],
+  "programmer_developer_statuses": [
+    [
+      "not_active",
+      79805
+    ],
+    [
+      "active",
+      7998
+    ]
+  ],
+  "latest_snapshot_dates_in_programmer_role": [
+    [
+      "2024-08-23",
+      78002
+    ],
+    [
+      "2024-08-27",
+      854
+    ],
+    [
+      "2024-09-10",
+      791
+    ],
+    [
+      "2024-09-03",
+      732
+    ],
+    [
+      "2024-09-12",
+      706
+    ],
+    [
+      "2024-08-28",
+      671
+    ],
+    [
+      "2024-09-05",
+      632
+    ],
+    [
+      "2024-09-04",
+      618
+    ],
+    [
+      "2024-09-15",
+      617
+    ],
+    [
+      "2024-08-29",
+      598
+    ],
+    [
+      "2024-09-11",
+      597
+    ],
+    [
+      "2024-09-06",
+      574
+    ],
+    [
+      "2024-08-30",
+      560
+    ],
+    [
+      "2024-09-07",
+      542
+    ],
+    [
+      "2024-08-31",
+      488
+    ],
+    [
+      "2024-08-24",
+      457
+    ],
+    [
+      "2024-09-13",
+      151
+    ],
+    [
+      "2024-09-09",
+      45
+    ],
+    [
+      "2024-09-02",
+      37
+    ],
+    [
+      "2024-08-25",
+      36
+    ]
+  ],
+  "top_role_status_combinations": [
+    {
+      "role": "<empty>",
+      "status": "not_active",
+      "count": 2343194
+    },
+    {
+      "role": "<empty>",
+      "status": "active",
+      "count": 742644
+    },
+    {
+      "role": "Другое",
+      "status": "not_active",
+      "count": 689372
+    },
+    {
+      "role": "Продавец-консультант, продавец-кассир",
+      "status": "not_active",
+      "count": 485529
+    },
+    {
+      "role": "Менеджер по продажам, менеджер по работе с клиентами",
+      "status": "not_active",
+      "count": 469267
+    },
+    {
+      "role": "Водитель",
+      "status": "not_active",
+      "count": 336400
+    },
+    {
+      "role": "Бухгалтер",
+      "status": "not_active",
+      "count": 162151
+    },
+    {
+      "role": "Повар, пекарь, кондитер",
+      "status": "not_active",
+      "count": 157452
+    },
+    {
+      "role": "Оператор call-центра, специалист контактного центра",
+      "status": "not_active",
+      "count": 152861
+    },
+    {
+      "role": "Разнорабочий",
+      "status": "not_active",
+      "count": 138361
+    },
+    {
+      "role": "Упаковщик, комплектовщик",
+      "status": "not_active",
+      "count": 126499
+    },
+    {
+      "role": "Врач",
+      "status": "not_active",
+      "count": 118083
+    },
+    {
+      "role": "Кладовщик",
+      "status": "not_active",
+      "count": 117971
+    },
+    {
+      "role": "Администратор магазина, администратор торгового зала",
+      "status": "not_active",
+      "count": 104761
+    },
+    {
+      "role": "Администратор",
+      "status": "not_active",
+      "count": 104188
+    },
+    {
+      "role": "Курьер",
+      "status": "not_active",
+      "count": 101048
+    },
+    {
+      "role": "Инженер-конструктор, инженер-проектировщик",
+      "status": "not_active",
+      "count": 98788
+    },
+    {
+      "role": "Слесарь, сантехник",
+      "status": "not_active",
+      "count": 91413
+    },
+    {
+      "role": "Машинист",
+      "status": "not_active",
+      "count": 86414
+    },
+    {
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "count": 79805
+    },
+    {
+      "role": "Электромонтажник",
+      "status": "not_active",
+      "count": 78359
+    },
+    {
+      "role": "Официант, бармен, бариста",
+      "status": "not_active",
+      "count": 67515
+    },
+    {
+      "role": "Сварщик",
+      "status": "not_active",
+      "count": 67359
+    },
+    {
+      "role": "Директор магазина, директор сети магазинов",
+      "status": "not_active",
+      "count": 66797
+    },
+    {
+      "role": "Грузчик",
+      "status": "not_active",
+      "count": 66274
+    },
+    {
+      "role": "Менеджер по продажам, менеджер по работе с клиентами",
+      "status": "active",
+      "count": 66010
+    },
+    {
+      "role": "Инженер ПТО, инженер-сметчик",
+      "status": "not_active",
+      "count": 65212
+    },
+    {
+      "role": "Другое",
+      "status": "active",
+      "count": 64945
+    },
+    {
+      "role": "Сервисный инженер, инженер-механик",
+      "status": "not_active",
+      "count": 64913
+    },
+    {
+      "role": "Уборщица, уборщик",
+      "status": "not_active",
+      "count": 62505
+    }
+  ]
+}

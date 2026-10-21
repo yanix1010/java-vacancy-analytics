@@ -1,0 +1,355 @@
+{
+  "sample_rows": 100000,
+  "columns": [
+    "source",
+    "vacancy_id",
+    "status",
+    "snapshot_date",
+    "published_at",
+    "area",
+    "employer_id",
+    "employer_inn",
+    "employer_ogrn",
+    "employer_name",
+    "name",
+    "role",
+    "sphere",
+    "salary_from",
+    "salary_to",
+    "currency",
+    "gross",
+    "experience",
+    "schedule",
+    "employment",
+    "key_skills",
+    "description",
+    "url"
+  ],
+  "statuses": [
+    [
+      "not_active",
+      100000
+    ]
+  ],
+  "date_min": "2024-08-23",
+  "date_max": "2024-09-12",
+  "rows_with_key_skills": 37472,
+  "top_areas": [
+    [
+      "Москва",
+      12619
+    ],
+    [
+      "Санкт-Петербург",
+      6832
+    ],
+    [
+      "<empty>",
+      2929
+    ],
+    [
+      "Казань",
+      2012
+    ],
+    [
+      "Краснодар",
+      1966
+    ],
+    [
+      "Нижний Новгород",
+      1963
+    ],
+    [
+      "Екатеринбург",
+      1879
+    ],
+    [
+      "Новосибирск",
+      1593
+    ],
+    [
+      "Воронеж",
+      1551
+    ],
+    [
+      "Ростов-на-Дону",
+      1469
+    ],
+    [
+      "Уфа",
+      1421
+    ],
+    [
+      "Пермь",
+      1355
+    ],
+    [
+      "Тюмень",
+      1299
+    ],
+    [
+      "Самара",
+      1256
+    ],
+    [
+      "Красноярск",
+      1167
+    ]
+  ],
+  "top_roles": [
+    [
+      "Продавец-консультант, продавец-кассир",
+      15987
+    ],
+    [
+      "Другое",
+      9311
+    ],
+    [
+      "Администратор магазина, администратор торгового зала",
+      6329
+    ],
+    [
+      "Водитель",
+      5867
+    ],
+    [
+      "Повар, пекарь, кондитер",
+      4745
+    ],
+    [
+      "Менеджер по продажам, менеджер по работе с клиентами",
+      4626
+    ],
+    [
+      "<empty>",
+      2929
+    ],
+    [
+      "Директор магазина, директор сети магазинов",
+      2727
+    ],
+    [
+      "Бухгалтер",
+      1764
+    ],
+    [
+      "Упаковщик, комплектовщик",
+      1447
+    ],
+    [
+      "Врач",
+      1410
+    ],
+    [
+      "Разнорабочий",
+      1404
+    ],
+    [
+      "Кладовщик",
+      1304
+    ],
+    [
+      "Инженер-конструктор, инженер-проектировщик",
+      1206
+    ],
+    [
+      "Оператор call-центра, специалист контактного центра",
+      1134
+    ]
+  ],
+  "currencies": [
+    [
+      "RUR",
+      83075
+    ],
+    [
+      "<empty>",
+      16303
+    ],
+    [
+      "BYR",
+      269
+    ],
+    [
+      "KZT",
+      227
+    ],
+    [
+      "USD",
+      79
+    ],
+    [
+      "UZS",
+      35
+    ],
+    [
+      "EUR",
+      12
+    ]
+  ],
+  "java_name_matches_in_sample": 106,
+  "distinct_java_names_in_sample": 81,
+  "java_name_examples": [
+    {
+      "name": "Java-разработчик в Департамент по инструментам и технологиям выпуска версий и тестирования",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Санкт-Петербург",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Java; Spring Framework; RabbitMQ; Apache Maven; Git; ORACLE; MS SQL; Apache Kafka; JPA; PostgreSQL; XML; JSON API; REST; Docker"
+    },
+    {
+      "name": "Senior Java разработчик",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-30",
+      "key_skills": "разработчик; Java EE; Spring Boot; Java 8-11; Spring Framework"
+    },
+    {
+      "name": "Java/ Kotlin Developer",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Санкт-Петербург",
+      "snapshot_date": "2024-08-30",
+      "key_skills": "Java; Spring Framework; PostgreSQL"
+    },
+    {
+      "name": "Главный специалист (Разработчик TypeScript/JavaScript)",
+      "role": "Другое",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "TypeScrip; JavaScript; RESTful API; HTML; CSS"
+    },
+    {
+      "name": "QA Engineer Java/Инженер-тестировщик Java (ученик)",
+      "role": "Тестировщик",
+      "status": "not_active",
+      "area": "Ростов-на-Дону",
+      "snapshot_date": "2024-08-24",
+      "key_skills": "Тестирование; Модульное тестирование; Нагрузочное тестирование; Проведение тестирований; Test case; Регрессионное тестирование; Функциональное тестирование; Java; Selenium IDE; JSON API; web тестирование; ООП; Базы данных; автоматизация тестирования;"
+    },
+    {
+      "name": "Главный разработчик Java (API)",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-30",
+      "key_skills": ""
+    },
+    {
+      "name": "QA Engineer Java/Инженер-тестировщик Java (ученик)",
+      "role": "Тестировщик",
+      "status": "not_active",
+      "area": "Новосибирск",
+      "snapshot_date": "2024-08-30",
+      "key_skills": "Тестирование; Модульное тестирование; Нагрузочное тестирование; Проведение тестирований; Test case; Регрессионное тестирование; Функциональное тестирование; Java; Selenium IDE; JSON API; web тестирование; ООП; Базы данных; автоматизация тестирования;"
+    },
+    {
+      "name": "Java Backend developer",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Java; Java Core"
+    },
+    {
+      "name": "QA Automation Engineer Java",
+      "role": "Тестировщик",
+      "status": "not_active",
+      "area": "Самара",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Java; SQL; Selenium"
+    },
+    {
+      "name": "Java Developer-программист/стажер",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Екатеринбург",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Java; Java EE; ООП; ORACLE; MySQL; Spring Framework; PostgreSQL; Hibernate ORM; Java Core"
+    },
+    {
+      "name": "Java Developer / Java разработчик",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-23",
+      "key_skills": ""
+    },
+    {
+      "name": "Java Developer \\ Java разработчик",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Воронеж",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Java; Микросервисы; Spring Framework; Hibernate ORM"
+    },
+    {
+      "name": "Java онлайн-ментор (преподаватель)",
+      "role": "Методолог",
+      "status": "not_active",
+      "area": "Казань",
+      "snapshot_date": "2024-08-28",
+      "key_skills": "Java; Spring Boot; Ментор; Kafka; Java mentor; Java lead"
+    },
+    {
+      "name": "Специалист Python \\ Java направления «Автоматизация процессов интегрированного планирования»",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Казань",
+      "snapshot_date": "2024-09-03",
+      "key_skills": ""
+    },
+    {
+      "name": "Java-разработчик (CRM-системы)",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-28",
+      "key_skills": ""
+    },
+    {
+      "name": "Senior Java developer / Java программист",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-09-03",
+      "key_skills": ""
+    },
+    {
+      "name": "QA Engineer Java (стажер)",
+      "role": "Тестировщик",
+      "status": "not_active",
+      "area": "Воронеж",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Функциональное тестирование; Test case; Модульное тестирование; Selenium IDE; JUnit; MS SQL; Java; AQA; QA; Английский язык"
+    },
+    {
+      "name": "Java разработчик",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-09-12",
+      "key_skills": ""
+    },
+    {
+      "name": "Middle/senior QA Auto Java (Фронт платформа)",
+      "role": "Тестировщик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-09-03",
+      "key_skills": ""
+    },
+    {
+      "name": "Java-разработчик",
+      "role": "Программист, разработчик",
+      "status": "not_active",
+      "area": "Москва",
+      "snapshot_date": "2024-08-23",
+      "key_skills": "Redis; MongoDB; PostgreSQL; Kotlin; RabbitMQ; Java"
+    }
+  ]
+}
