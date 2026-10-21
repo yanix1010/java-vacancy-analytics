@@ -1,0 +1,26 @@
+{
+  "profiled_program": "scripts/mapreduce_skills.py",
+  "attempts": [
+    {
+      "attempt": 1,
+      "elapsed_seconds": 3.043,
+      "peak_rss_mib": 172.24,
+      "exit_code": 0
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 3.069,
+      "peak_rss_mib": 170.45,
+      "exit_code": 0
+    },
+    {
+      "attempt": 3,
+      "elapsed_seconds": 2.959,
+      "peak_rss_mib": 171.31,
+      "exit_code": 0
+    }
+  ],
+  "average_elapsed_seconds": 3.024,
+  "maximum_observed_peak_rss_mib": 172.24,
+  "measurement_note": "RSS sampled every 10 ms; peak is the maximum observed process RSS."
+}

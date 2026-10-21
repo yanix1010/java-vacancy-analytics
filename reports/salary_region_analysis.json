@@ -1,0 +1,655 @@
+{
+  "salary_method": "RUR/RUB only; midpoint when both bounds exist, otherwise the available bound",
+  "combination_minimum_salary_observations": 5,
+  "overall": [
+    {
+      "total_rows": 6100,
+      "rows_with_rub_salary": 1270,
+      "median_salary": 200000.0
+    }
+  ],
+  "top_skills": [
+    {
+      "skill": "java",
+      "vacancy_count": 3736,
+      "median_salary": 190000.0
+    },
+    {
+      "skill": "spring framework",
+      "vacancy_count": 2090,
+      "median_salary": 175000.0
+    },
+    {
+      "skill": "postgresql",
+      "vacancy_count": 1747,
+      "median_salary": 160000.0
+    },
+    {
+      "skill": "sql",
+      "vacancy_count": 1155,
+      "median_salary": 200000.0
+    },
+    {
+      "skill": "git",
+      "vacancy_count": 1045,
+      "median_salary": 175000.0
+    },
+    {
+      "skill": "spring boot",
+      "vacancy_count": 1010,
+      "median_salary": 230000.0
+    },
+    {
+      "skill": "kafka",
+      "vacancy_count": 948,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "docker",
+      "vacancy_count": 712,
+      "median_salary": 225000.0
+    },
+    {
+      "skill": "hibernate orm",
+      "vacancy_count": 668,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "kotlin",
+      "vacancy_count": 554,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "ооп",
+      "vacancy_count": 535,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "kubernetes",
+      "vacancy_count": 448,
+      "median_salary": 262500.0
+    },
+    {
+      "skill": "rest",
+      "vacancy_count": 429,
+      "median_salary": 220000.0
+    },
+    {
+      "skill": "spring",
+      "vacancy_count": 424,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "rabbitmq",
+      "vacancy_count": 408,
+      "median_salary": 280000.0
+    },
+    {
+      "skill": "oracle",
+      "vacancy_count": 371,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "java ee",
+      "vacancy_count": 330,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "hibernate",
+      "vacancy_count": 317,
+      "median_salary": 240000.0
+    },
+    {
+      "skill": "java core",
+      "vacancy_count": 301,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "linux",
+      "vacancy_count": 295,
+      "median_salary": 185000.0
+    },
+    {
+      "skill": "apache maven",
+      "vacancy_count": 274,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "java se",
+      "vacancy_count": 256,
+      "median_salary": 205000.0
+    },
+    {
+      "skill": "mysql",
+      "vacancy_count": 255,
+      "median_salary": 75000.0
+    },
+    {
+      "skill": "apache kafka",
+      "vacancy_count": 239,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "javascript",
+      "vacancy_count": 204,
+      "median_salary": 150000.0
+    },
+    {
+      "skill": "junit",
+      "vacancy_count": 188,
+      "median_salary": 200000.0
+    },
+    {
+      "skill": "maven",
+      "vacancy_count": 167,
+      "median_salary": 220000.0
+    },
+    {
+      "skill": "redis",
+      "vacancy_count": 165,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "gradle",
+      "vacancy_count": 161,
+      "median_salary": 250000.0
+    },
+    {
+      "skill": "react",
+      "vacancy_count": 151,
+      "median_salary": 170000.0
+    }
+  ],
+  "pair_salary_extremes": [
+    {
+      "kind": "highest",
+      "skill_a": "hibernate",
+      "skill_b": "swagger",
+      "vacancy_count": 10,
+      "salary_count": 8,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "keycloak",
+      "skill_b": "kubernetes",
+      "vacancy_count": 13,
+      "salary_count": 5,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "keycloak",
+      "skill_b": "postgresql",
+      "vacancy_count": 30,
+      "salary_count": 5,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "maven",
+      "skill_b": "microservices",
+      "vacancy_count": 16,
+      "salary_count": 10,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "gradle",
+      "skill_b": "microservices",
+      "vacancy_count": 10,
+      "salary_count": 7,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "keycloak",
+      "skill_b": "spring boot",
+      "vacancy_count": 13,
+      "salary_count": 5,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "jenkins",
+      "skill_b": "kotlin",
+      "vacancy_count": 15,
+      "salary_count": 6,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "hibernate orm",
+      "skill_b": "kotlin",
+      "vacancy_count": 52,
+      "salary_count": 6,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "spring",
+      "skill_b": "spring framework",
+      "vacancy_count": 68,
+      "salary_count": 15,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "java",
+      "skill_b": "keycloak",
+      "vacancy_count": 30,
+      "salary_count": 5,
+      "median_salary": 400000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "html",
+      "skill_b": "typescript",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 40000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "mockito",
+      "vacancy_count": 24,
+      "salary_count": 7,
+      "median_salary": 60000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "spring web",
+      "vacancy_count": 8,
+      "salary_count": 5,
+      "median_salary": 65000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "java",
+      "skill_b": "spring web",
+      "vacancy_count": 13,
+      "salary_count": 8,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "postgresql",
+      "skill_b": "spring web",
+      "vacancy_count": 8,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "intellij idea",
+      "skill_b": "spring framework",
+      "vacancy_count": 24,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "hibernate",
+      "skill_b": "spring security",
+      "vacancy_count": 6,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "mockito",
+      "skill_b": "spring framework",
+      "vacancy_count": 26,
+      "salary_count": 7,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "spring security",
+      "skill_b": "spring web",
+      "vacancy_count": 5,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "spring web",
+      "skill_b": "sql",
+      "vacancy_count": 11,
+      "salary_count": 7,
+      "median_salary": 70000.0
+    }
+  ],
+  "triple_salary_extremes": [
+    {
+      "kind": "highest",
+      "skill_a": "hibernate orm",
+      "skill_b": "rabbitmq",
+      "skill_c": "spring boot",
+      "vacancy_count": 15,
+      "salary_count": 5,
+      "median_salary": 450000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "hibernate",
+      "skill_b": "kotlin",
+      "skill_c": "spring boot",
+      "vacancy_count": 14,
+      "salary_count": 7,
+      "median_salary": 425000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "apache kafka",
+      "skill_b": "java",
+      "skill_c": "soap",
+      "vacancy_count": 17,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "kubernetes",
+      "skill_b": "rabbitmq",
+      "skill_c": "soap",
+      "vacancy_count": 5,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "docker",
+      "skill_b": "hibernate",
+      "skill_c": "swagger",
+      "vacancy_count": 6,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "kubernetes",
+      "skill_b": "soap",
+      "skill_c": "sql",
+      "vacancy_count": 6,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "apache kafka",
+      "skill_b": "rabbitmq",
+      "skill_c": "spring",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "apache kafka",
+      "skill_b": "rest",
+      "skill_c": "spring",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "apache kafka",
+      "skill_b": "hibernate",
+      "skill_c": "soap",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "highest",
+      "skill_a": "apache kafka",
+      "skill_b": "hibernate",
+      "skill_c": "rest",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 420000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "java",
+      "skill_b": "spring",
+      "skill_c": "ооп",
+      "vacancy_count": 79,
+      "salary_count": 5,
+      "median_salary": 40000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "java se",
+      "skill_c": "sql",
+      "vacancy_count": 32,
+      "salary_count": 8,
+      "median_salary": 51250.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "java",
+      "skill_c": "mockito",
+      "vacancy_count": 23,
+      "salary_count": 7,
+      "median_salary": 60000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "linux",
+      "skill_c": "spring",
+      "vacancy_count": 15,
+      "salary_count": 5,
+      "median_salary": 62500.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "java",
+      "skill_c": "spring web",
+      "vacancy_count": 8,
+      "salary_count": 5,
+      "median_salary": 65000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "git",
+      "skill_b": "mockito",
+      "skill_c": "spring framework",
+      "vacancy_count": 18,
+      "salary_count": 6,
+      "median_salary": 65000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "spring boot",
+      "skill_b": "spring security",
+      "skill_c": "spring web",
+      "vacancy_count": 5,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "java",
+      "skill_b": "spring security",
+      "skill_c": "spring web",
+      "vacancy_count": 5,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "postgresql",
+      "skill_b": "spring boot",
+      "skill_c": "spring web",
+      "vacancy_count": 7,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    },
+    {
+      "kind": "lowest",
+      "skill_a": "java",
+      "skill_b": "postgresql",
+      "skill_c": "spring security",
+      "vacancy_count": 13,
+      "salary_count": 5,
+      "median_salary": 70000.0
+    }
+  ],
+  "top_three_regions": [
+    {
+      "area": "Москва",
+      "vacancy_count": 3030,
+      "salary_count": 549,
+      "median_salary": 240000.0
+    },
+    {
+      "area": "Санкт-Петербург",
+      "vacancy_count": 801,
+      "salary_count": 190,
+      "median_salary": 220000.0
+    },
+    {
+      "area": "Новосибирск",
+      "vacancy_count": 271,
+      "salary_count": 65,
+      "median_salary": 185000.0
+    }
+  ],
+  "top_skills_by_region": {
+    "Москва": [
+      {
+        "skill": "java",
+        "vacancy_count": 1692
+      },
+      {
+        "skill": "spring framework",
+        "vacancy_count": 963
+      },
+      {
+        "skill": "postgresql",
+        "vacancy_count": 788
+      },
+      {
+        "skill": "kafka",
+        "vacancy_count": 520
+      },
+      {
+        "skill": "sql",
+        "vacancy_count": 518
+      },
+      {
+        "skill": "spring boot",
+        "vacancy_count": 514
+      },
+      {
+        "skill": "git",
+        "vacancy_count": 407
+      },
+      {
+        "skill": "docker",
+        "vacancy_count": 341
+      },
+      {
+        "skill": "kotlin",
+        "vacancy_count": 259
+      },
+      {
+        "skill": "kubernetes",
+        "vacancy_count": 257
+      }
+    ],
+    "Санкт-Петербург": [
+      {
+        "skill": "java",
+        "vacancy_count": 475
+      },
+      {
+        "skill": "spring framework",
+        "vacancy_count": 275
+      },
+      {
+        "skill": "postgresql",
+        "vacancy_count": 223
+      },
+      {
+        "skill": "git",
+        "vacancy_count": 139
+      },
+      {
+        "skill": "spring boot",
+        "vacancy_count": 129
+      },
+      {
+        "skill": "sql",
+        "vacancy_count": 126
+      },
+      {
+        "skill": "kafka",
+        "vacancy_count": 101
+      },
+      {
+        "skill": "kotlin",
+        "vacancy_count": 94
+      },
+      {
+        "skill": "docker",
+        "vacancy_count": 91
+      },
+      {
+        "skill": "hibernate orm",
+        "vacancy_count": 74
+      }
+    ],
+    "Новосибирск": [
+      {
+        "skill": "java",
+        "vacancy_count": 174
+      },
+      {
+        "skill": "spring framework",
+        "vacancy_count": 96
+      },
+      {
+        "skill": "postgresql",
+        "vacancy_count": 78
+      },
+      {
+        "skill": "git",
+        "vacancy_count": 63
+      },
+      {
+        "skill": "sql",
+        "vacancy_count": 54
+      },
+      {
+        "skill": "hibernate orm",
+        "vacancy_count": 47
+      },
+      {
+        "skill": "docker",
+        "vacancy_count": 38
+      },
+      {
+        "skill": "spring boot",
+        "vacancy_count": 32
+      },
+      {
+        "skill": "ооп",
+        "vacancy_count": 26
+      },
+      {
+        "skill": "oracle",
+        "vacancy_count": 24
+      }
+    ]
+  }
+}
