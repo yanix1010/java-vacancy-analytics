@@ -1,0 +1,4 @@
+2026-11-11T23:10:46.332+00:00 [coordinator-A] записал результат epoch=1 pointer_version=2
+2026-11-11T23:10:35.384+00:00 [coordinator-B] записал результат epoch=2 pointer_version=1
+2026-11-11T23:12:36.432+00:00 [coordinator-A] BadVersionError: stale publication rejected epoch=1 epoch_version=1
+2026-11-11T23:12:25.511+00:00 [coordinator-B] записал результат epoch=2 pointer_version=1

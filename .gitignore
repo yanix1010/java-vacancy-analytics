@@ -9,3 +9,9 @@ data/
 *.csv
 *.parquet
 reports/initial_inspection_error.log
+
+hw4-zookeeper/checkpoints/
+hw4-zookeeper/datalog/
+hw4-zookeeper/input/
+hw4-zookeeper/coordinator_backup.py
+hw4-zookeeper/coordinator.before_*.py

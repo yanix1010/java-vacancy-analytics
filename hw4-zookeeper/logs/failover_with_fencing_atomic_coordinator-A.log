@@ -1,0 +1,18 @@
+2026-11-11T23:11:47.367+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T23:11:47.399+00:00 [coordinator-A] PID=69917 FENCING=1
+2026-11-11T23:11:47.399+00:00 [coordinator-A] Ready: 13 batches
+2026-11-11T23:11:47.416+00:00 [coordinator-A] BECAME LEADER epoch=1 epoch_version=1
+2026-11-11T23:11:47.416+00:00 [coordinator-A] Loaded checkpoint: 0/13
+2026-11-11T23:11:49.434+00:00 [coordinator-A] Checkpoint saved: 1/13
+2026-11-11T23:11:51.453+00:00 [coordinator-A] Checkpoint saved: 2/13
+2026-11-11T23:11:53.477+00:00 [coordinator-A] Checkpoint saved: 3/13
+2026-11-11T23:11:55.496+00:00 [coordinator-A] Checkpoint saved: 4/13
+2026-11-11T23:11:55.496+00:00 [coordinator-A] READY_TO_PAUSE after checkpoint 4
+2026-11-11T23:12:35.951+00:00 [coordinator-A] ZooKeeper state: SUSPENDED
+2026-11-11T23:12:35.952+00:00 [coordinator-A] Waiting for ZooKeeper reconnection
+2026-11-11T23:12:35.954+00:00 [coordinator-A] ZooKeeper state: LOST
+2026-11-11T23:12:35.970+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T23:12:36.205+00:00 [coordinator-A] STALE LEADER epoch=1
+2026-11-11T23:12:36.239+00:00 [coordinator-A] Recovered checkpoint: 13/13
+2026-11-11T23:12:36.432+00:00 [coordinator-A] BadVersionError: stale publication rejected epoch=1 epoch_version=1
+2026-11-11T23:12:36.436+00:00 [coordinator-A] ZooKeeper state: LOST

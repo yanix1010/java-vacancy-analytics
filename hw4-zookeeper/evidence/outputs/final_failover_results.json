@@ -1,0 +1,30 @@
+[
+  {
+    "run": "failover_no_fencing_atomic",
+    "fencing": 0,
+    "session_timeout_seconds": 10,
+    "paused_after_checkpoint": 4,
+    "pause_seconds": 40.001,
+    "failover_seconds": 11.034,
+    "completed_batches": 13,
+    "distinct_pairs": 15755,
+    "hw3_pair_frequencies_match": true,
+    "pointer": "coordinator=coordinator-A;epoch=1;pairs=15755",
+    "pointer_version": 2,
+    "old_leader_publication": "accepted"
+  },
+  {
+    "run": "failover_with_fencing_atomic",
+    "fencing": 1,
+    "session_timeout_seconds": 10,
+    "paused_after_checkpoint": 4,
+    "pause_seconds": 40.0,
+    "failover_seconds": 11.228,
+    "completed_batches": 13,
+    "distinct_pairs": 15755,
+    "hw3_pair_frequencies_match": true,
+    "pointer": "coordinator=coordinator-B;epoch=2;pairs=15755",
+    "pointer_version": 1,
+    "old_leader_publication": "rejected"
+  }
+]

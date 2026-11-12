@@ -1,0 +1,6 @@
+2026-11-11T22:24:55.462+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T22:24:55.493+00:00 [coordinator-A] PID=65897 FENCING=0
+2026-11-11T22:24:55.493+00:00 [coordinator-A] Ready: 13 batches
+2026-11-11T22:24:55.508+00:00 [coordinator-A] BECAME LEADER epoch=1 expected_version=0
+2026-11-11T22:24:55.508+00:00 [coordinator-A] Loaded checkpoint: 0/13
+2026-11-11T22:24:55.512+00:00 [coordinator-A] ZooKeeper state: LOST

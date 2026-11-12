@@ -1,0 +1,23 @@
+2026-11-11T22:30:42.069+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T22:30:42.101+00:00 [coordinator-A] PID=66395 FENCING=0
+2026-11-11T22:30:42.101+00:00 [coordinator-A] Ready: 13 batches
+2026-11-11T22:30:42.116+00:00 [coordinator-A] BECAME LEADER epoch=1 expected_version=0
+2026-11-11T22:30:42.116+00:00 [coordinator-A] Loaded checkpoint: 0/13
+2026-11-11T22:30:44.132+00:00 [coordinator-A] Checkpoint saved: 1/13
+2026-11-11T22:30:46.150+00:00 [coordinator-A] Checkpoint saved: 2/13
+2026-11-11T22:30:48.171+00:00 [coordinator-A] Checkpoint saved: 3/13
+2026-11-11T22:30:50.190+00:00 [coordinator-A] Checkpoint saved: 4/13
+2026-11-11T22:30:50.190+00:00 [coordinator-A] READY_TO_PAUSE after checkpoint 4
+Connection dropped: socket connection broken
+Transition to CONNECTING
+2026-11-11T22:31:30.610+00:00 [coordinator-A] ZooKeeper state: SUSPENDED2026-11-11T22:31:30.610+00:00 [coordinator-A] Waiting for ZooKeeper reconnection
+
+Session has expired
+2026-11-11T22:31:30.617+00:00 [coordinator-A] ZooKeeper state: LOST
+2026-11-11T22:31:30.624+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T22:31:30.865+00:00 [coordinator-A] STALE LEADER epoch=1
+2026-11-11T22:31:30.892+00:00 [coordinator-A] Recovered checkpoint: 13/13
+Distinct pairs: 15755
+HW3 pair frequencies: MATCH
+2026-11-11T22:31:31.067+00:00 [coordinator-A] записал результат epoch=1 pointer_version=2
+2026-11-11T22:31:31.071+00:00 [coordinator-A] ZooKeeper state: LOST

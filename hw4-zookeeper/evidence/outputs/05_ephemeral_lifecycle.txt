@@ -1,0 +1,6 @@
+Ephemeral node created: /hw4/ephemeral_ced2646f330f4f418d954aa1440e8a78
+Second client reads: active
+Ephemeral owner session: 0x1000e8abce80000
+Owner session closed
+Ephemeral node automatically deleted
+Ephemeral lifecycle: PASSED

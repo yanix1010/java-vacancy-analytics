@@ -1,0 +1,4 @@
+NAME                   IMAGE                    COMMAND                  SERVICE   CREATED       STATUS       PORTS
+hw4-zookeeper-zoo1-1   zookeeper:3.9.6-jre-17   "/docker-entrypoint.…"   zoo1      4 hours ago   Up 3 hours   127.0.0.1:2181->2181/tcp
+hw4-zookeeper-zoo2-1   zookeeper:3.9.6-jre-17   "/docker-entrypoint.…"   zoo2      4 hours ago   Up 3 hours   127.0.0.1:2182->2181/tcp
+hw4-zookeeper-zoo3-1   zookeeper:3.9.6-jre-17   "/docker-entrypoint.…"   zoo3      4 hours ago   Up 4 hours   127.0.0.1:2183->2181/tcp

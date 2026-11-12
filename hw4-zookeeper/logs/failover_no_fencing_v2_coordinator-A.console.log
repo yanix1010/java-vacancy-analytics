@@ -1,0 +1,26 @@
+2026-11-11T22:18:04.504+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T22:18:04.536+00:00 [coordinator-A] PID=65328 FENCING=0
+2026-11-11T22:18:04.536+00:00 [coordinator-A] Ready: 13 batches
+2026-11-11T22:18:04.553+00:00 [coordinator-A] BECAME LEADER epoch=1 expected_version=0
+2026-11-11T22:18:04.553+00:00 [coordinator-A] Loaded checkpoint: 0/13
+2026-11-11T22:18:06.572+00:00 [coordinator-A] Checkpoint saved: 1/13
+2026-11-11T22:18:08.589+00:00 [coordinator-A] Checkpoint saved: 2/13
+2026-11-11T22:18:10.612+00:00 [coordinator-A] Checkpoint saved: 3/13
+2026-11-11T22:18:12.631+00:00 [coordinator-A] Checkpoint saved: 4/13
+2026-11-11T22:18:12.631+00:00 [coordinator-A] READY_TO_PAUSE after checkpoint 4
+Connection dropped: socket connection broken
+Transition to CONNECTING
+2026-11-11T22:18:53.045+00:00 [coordinator-A] ZooKeeper state: SUSPENDED
+2026-11-11T22:18:53.047+00:00 [coordinator-A] ZooKeeper state: LOST
+Traceback (most recent call last):
+  File "/home/user/java-vacancy-pipeline/hw4-zookeeper/coordinator.py", line 206, in <module>
+    main()
+  File "/home/user/java-vacancy-pipeline/hw4-zookeeper/coordinator.py", line 150, in main
+    current_epoch, _ = zk.get(epoch_path)
+                       ^^^^^^^^^^^^^^^^^^
+  File "/home/user/java-vacancy-pipeline/.venv/lib/python3.12/site-packages/kazoo/client.py", line 1244, in get
+    return self.get_async(path, watch=watch).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/java-vacancy-pipeline/.venv/lib/python3.12/site-packages/kazoo/handlers/utils.py", line 78, in get
+    raise self._exception
+kazoo.exceptions.ConnectionLoss

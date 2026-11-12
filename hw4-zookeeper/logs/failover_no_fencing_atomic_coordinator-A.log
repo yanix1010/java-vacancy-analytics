@@ -1,0 +1,18 @@
+2026-11-11T23:09:57.293+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T23:09:57.326+00:00 [coordinator-A] PID=69717 FENCING=0
+2026-11-11T23:09:57.326+00:00 [coordinator-A] Ready: 13 batches
+2026-11-11T23:09:57.344+00:00 [coordinator-A] BECAME LEADER epoch=1 epoch_version=1
+2026-11-11T23:09:57.344+00:00 [coordinator-A] Loaded checkpoint: 0/13
+2026-11-11T23:09:59.361+00:00 [coordinator-A] Checkpoint saved: 1/13
+2026-11-11T23:10:01.382+00:00 [coordinator-A] Checkpoint saved: 2/13
+2026-11-11T23:10:03.400+00:00 [coordinator-A] Checkpoint saved: 3/13
+2026-11-11T23:10:05.454+00:00 [coordinator-A] Checkpoint saved: 4/13
+2026-11-11T23:10:05.454+00:00 [coordinator-A] READY_TO_PAUSE after checkpoint 4
+2026-11-11T23:10:45.856+00:00 [coordinator-A] ZooKeeper state: SUSPENDED
+2026-11-11T23:10:45.856+00:00 [coordinator-A] Waiting for ZooKeeper reconnection
+2026-11-11T23:10:45.864+00:00 [coordinator-A] ZooKeeper state: LOST
+2026-11-11T23:10:45.869+00:00 [coordinator-A] ZooKeeper state: CONNECTED
+2026-11-11T23:10:46.114+00:00 [coordinator-A] STALE LEADER epoch=1
+2026-11-11T23:10:46.147+00:00 [coordinator-A] Recovered checkpoint: 13/13
+2026-11-11T23:10:46.332+00:00 [coordinator-A] записал результат epoch=1 pointer_version=2
+2026-11-11T23:10:46.336+00:00 [coordinator-A] ZooKeeper state: LOST

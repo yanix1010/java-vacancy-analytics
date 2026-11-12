@@ -1,0 +1,13 @@
+2026-11-11T22:24:55.649+00:00 [coordinator-B] ZooKeeper state: CONNECTED
+2026-11-11T22:24:55.674+00:00 [coordinator-B] PID=65915 FENCING=0
+2026-11-11T22:24:55.675+00:00 [coordinator-B] Ready: 13 batches
+2026-11-11T22:24:55.685+00:00 [coordinator-B] BECAME LEADER epoch=2 expected_version=0
+2026-11-11T22:24:55.686+00:00 [coordinator-B] Loaded checkpoint: 0/13
+2026-11-11T22:24:55.690+00:00 [coordinator-B] ZooKeeper state: LOST
+Traceback (most recent call last):
+  File "/home/user/java-vacancy-pipeline/hw4-zookeeper/coordinator.py", line 223, in <module>
+    main()
+  File "/home/user/java-vacancy-pipeline/hw4-zookeeper/coordinator.py", line 159, in main
+    if int(current_epoch.decode()) != epoch:
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'decode'

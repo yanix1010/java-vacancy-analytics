@@ -1,0 +1,21 @@
+2026-11-11T22:32:54.115+00:00 [coordinator-B] ZooKeeper state: CONNECTED
+2026-11-11T22:32:54.140+00:00 [coordinator-B] PID=66639 FENCING=1
+2026-11-11T22:32:54.140+00:00 [coordinator-B] Ready: 13 batches
+2026-11-11T22:33:12.387+00:00 [coordinator-B] BECAME LEADER epoch=2 expected_version=0
+2026-11-11T22:33:12.396+00:00 [coordinator-B] Loaded checkpoint: 4/13
+2026-11-11T22:33:14.421+00:00 [coordinator-B] Checkpoint saved: 5/13
+2026-11-11T22:33:16.446+00:00 [coordinator-B] Checkpoint saved: 6/13
+2026-11-11T22:33:18.478+00:00 [coordinator-B] Checkpoint saved: 7/13
+2026-11-11T22:33:20.501+00:00 [coordinator-B] Checkpoint saved: 8/13
+2026-11-11T22:33:22.531+00:00 [coordinator-B] Checkpoint saved: 9/13
+2026-11-11T22:33:24.561+00:00 [coordinator-B] Checkpoint saved: 10/13
+2026-11-11T22:33:26.597+00:00 [coordinator-B] Checkpoint saved: 11/13
+2026-11-11T22:33:28.638+00:00 [coordinator-B] Checkpoint saved: 12/13
+2026-11-11T22:33:30.703+00:00 [coordinator-B] Checkpoint saved: 13/13
+Distinct pairs: 15755
+HW3 pair frequencies: MATCH
+2026-11-11T22:33:30.940+00:00 [coordinator-B] CALCULATION COMPLETE epoch=2
+2026-11-11T22:33:30.954+00:00 [coordinator-B] записал результат epoch=2 pointer_version=1
+2026-11-11T22:33:30.954+00:00 [coordinator-B] Waiting for experiment completion
+2026-11-11T22:33:43.297+00:00 [coordinator-B] Stopped by user
+2026-11-11T22:33:43.301+00:00 [coordinator-B] ZooKeeper state: LOST
