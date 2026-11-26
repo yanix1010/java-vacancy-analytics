@@ -1,0 +1,1 @@
+Error from server (Forbidden): error when creating "hw5-kubernetes/quota-second-pod.yaml": pods "quota-second" is forbidden: exceeded quota: hw5-pod-quota, requested: pods=1, used: pods=1, limited: pods=1

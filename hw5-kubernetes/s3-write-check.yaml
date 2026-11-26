@@ -1,0 +1,80 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-s3-write-check
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: check
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -c
+            - |
+              import os
+              import boto3
+              from botocore.config import Config
+
+              kwargs = dict(
+                  aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+                  aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+                  region_name="us-east-1",
+                  config=Config(s3={"addressing_style": "path"}),
+              )
+
+              old = boto3.client(
+                  "s3",
+                  endpoint_url="http://host.docker.internal:9000",
+                  **kwargs,
+              )
+
+              new = boto3.client(
+                  "s3",
+                  endpoint_url="http://rustfs.hw5.svc.cluster.local:9000",
+                  **kwargs,
+              )
+
+              bucket = "hh-lake"
+              test_key = "hw5/test/sample.bin"
+
+              buckets = [b["Name"] for b in new.list_buckets()["Buckets"]]
+              if bucket not in buckets:
+                  new.create_bucket(Bucket=bucket)
+
+              data = old.get_object(
+                  Bucket=bucket,
+                  Key="raw/vacancies_2024.csv",
+                  Range="bytes=0-1048575",
+              )["Body"].read()
+
+              new.put_object(
+                  Bucket=bucket,
+                  Key=test_key,
+                  Body=data,
+              )
+
+              result = new.get_object(
+                  Bucket=bucket,
+                  Key=test_key,
+              )["Body"].read()
+
+              assert result == data
+              print("Internal bucket:", bucket)
+              print("Transferred test bytes:", len(data))
+              print("Read-back verification: MATCH")
+              print("S3 write test: PASSED")
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

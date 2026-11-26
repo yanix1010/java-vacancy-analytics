@@ -1,0 +1,12 @@
+PAIR                              HW3    K8S  MATCH
+java + spring framework          1965   1965   True
+java + postgresql                1625   1625   True
+postgresql + spring framework    1112   1112   True
+java + sql                       1074   1074   True
+git + java                        959    959   True
+java + spring boot                947    947   True
+java + kafka                      884    884   True
+docker + java                     641    641   True
+hibernate orm + java              637    637   True
+git + spring framework            635    635   True
+TOP10_MATCH: PASSED

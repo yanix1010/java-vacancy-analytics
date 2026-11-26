@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-s3-check
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: s3-check
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -c
+            - |
+              import os
+              import boto3
+              from botocore.config import Config
+
+              s3 = boto3.client(
+                  "s3",
+                  endpoint_url=os.environ["RUSTFS_ENDPOINT"],
+                  aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+                  aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+                  region_name="us-east-1",
+                  config=Config(s3={"addressing_style": "path"}),
+              )
+              obj = s3.head_object(
+                  Bucket="hh-lake",
+                  Key="raw/vacancies_2024.csv",
+              )
+              print("S3 connection: OK")
+              print("Source object: s3://hh-lake/raw/vacancies_2024.csv")
+              print("Object size:", obj["ContentLength"])
+          env:
+            - name: RUSTFS_ENDPOINT
+              value: http://host.docker.internal:9000
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

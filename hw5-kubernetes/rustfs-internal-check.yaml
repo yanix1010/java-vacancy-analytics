@@ -1,0 +1,43 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-rustfs-internal-check
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: check
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -c
+            - |
+              import os
+              import boto3
+              from botocore.config import Config
+
+              s3 = boto3.client(
+                  "s3",
+                  endpoint_url="http://rustfs.hw5.svc.cluster.local:9000",
+                  aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+                  aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+                  region_name="us-east-1",
+                  config=Config(s3={"addressing_style": "path"}),
+              )
+              response = s3.list_buckets()
+              print("Internal RustFS S3 API: OK")
+              print("Buckets:", [b["Name"] for b in response["Buckets"]])
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

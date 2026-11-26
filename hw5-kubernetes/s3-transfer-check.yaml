@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-s3-transfer-check
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: transfer-check
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -c
+            - |
+              import os
+              import boto3
+              from botocore.config import Config
+
+              kwargs = dict(
+                  aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+                  aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+                  region_name="us-east-1",
+                  config=Config(s3={"addressing_style": "path"}),
+              )
+
+              old = boto3.client(
+                  "s3",
+                  endpoint_url="http://host.docker.internal:9000",
+                  **kwargs,
+              )
+              new = boto3.client(
+                  "s3",
+                  endpoint_url="http://rustfs.hw5.svc.cluster.local:9000",
+                  **kwargs,
+              )
+
+              source = old.head_object(
+                  Bucket="hh-lake",
+                  Key="raw/vacancies_2024.csv",
+              )
+
+              print("Old RustFS: OK")
+              print("New RustFS: OK")
+              print("Source size:", source["ContentLength"])
+              print("New buckets:", [b["Name"] for b in new.list_buckets()["Buckets"]])
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

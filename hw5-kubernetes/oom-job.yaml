@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-oom-test
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: skills
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -u
+            - /app/mapreduce_k8s.py
+          args:
+            - --sizes
+            - "4"
+            - --max-bytes
+            - "67108864"
+            - --batch-size
+            - "500"
+          env:
+            - name: RUSTFS_ENDPOINT
+              value: http://host.docker.internal:9000
+            - name: PYTHONUNBUFFERED
+              value: "1"
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 250m
+              memory: 32Mi
+            limits:
+              cpu: "2"
+              memory: 64Mi

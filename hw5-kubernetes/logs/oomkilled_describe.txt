@@ -1,0 +1,79 @@
+Name:             hw5-oom-test-32-k244j
+Namespace:        hw5
+Priority:         0
+Service Account:  default
+Node:             hw5-control-plane/172.23.0.2
+Start Time:       Thu, 26 Nov 2026 00:33:13 +0300
+Labels:           batch.kubernetes.io/controller-uid=0c958fe8-2c58-4970-9765-fa04dc1ee61f
+                  batch.kubernetes.io/job-name=hw5-oom-test-32
+                  controller-uid=0c958fe8-2c58-4970-9765-fa04dc1ee61f
+                  job-name=hw5-oom-test-32
+Annotations:      <none>
+Status:           Failed
+IP:               10.244.0.9
+IPs:
+  IP:           10.244.0.9
+Controlled By:  Job/hw5-oom-test-32
+Containers:
+  skills:
+    Container ID:  containerd://9b59ec9b4270946e8d0e9c76f2a179f8eda6be5e346b2a9cd69bb75fe08638d5
+    Image:         hw5-skills:1
+    Image ID:      docker.io/library/import-2026-11-25@sha256:8993cfaf69ae483169fd5487b0c59f7ca4e721abb6595df6c46d414c6e8e9f44
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      python
+      -u
+      /app/mapreduce_k8s.py
+    Args:
+      --sizes
+      4
+      --max-bytes
+      134217728
+      --batch-size
+      500
+    State:          Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Thu, 26 Nov 2026 00:33:13 +0300
+      Finished:     Thu, 26 Nov 2026 00:33:14 +0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  32Mi
+    Requests:
+      cpu:     250m
+      memory:  16Mi
+    Environment Variables from:
+      rustfs-credentials  Secret  Optional: false
+    Environment:
+      RUSTFS_ENDPOINT:   http://host.docker.internal:9000
+      PYTHONUNBUFFERED:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-sfnnz (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False
+  Initialized                 True
+  Ready                       False
+  ContainersReady             False
+  PodScheduled                True
+Volumes:
+  kube-api-access-sfnnz:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  108s  default-scheduler  Successfully assigned hw5/hw5-oom-test-32-k244j to hw5-control-plane
+  Normal  Pulled     108s  kubelet            spec.containers{skills}: Container image "hw5-skills:1" already present on machine and can be accessed by the pod
+  Normal  Created    108s  kubelet            spec.containers{skills}: Container created
+  Normal  Started    108s  kubelet            spec.containers{skills}: Container started

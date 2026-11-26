@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-cpu-pending
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: cpu-test
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -c
+            - |
+              import time
+              time.sleep(300)
+          resources:
+            requests:
+              cpu: "7500m"
+              memory: 64Mi
+            limits:
+              memory: 128Mi

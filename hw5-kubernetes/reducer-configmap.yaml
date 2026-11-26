@@ -1,0 +1,96 @@
+apiVersion: v1
+data:
+  reducer.py: |
+    import json
+    import os
+    from collections import Counter
+
+    import boto3
+    from botocore.config import Config
+
+    s3 = boto3.client(
+        "s3",
+        endpoint_url=os.environ["RUSTFS_ENDPOINT"],
+        aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+        aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+        region_name="us-east-1",
+        config=Config(s3={"addressing_style": "path"}),
+    )
+
+    bucket = "hh-lake"
+    pairs = Counter()
+    totals = {
+        "source_rows": 0,
+        "java_vacancies": 0,
+        "rows_with_skills": 0,
+        "malformed_rows": 0,
+    }
+    parts = []
+
+    for index in range(4):
+        response = s3.get_object(
+            Bucket=bucket,
+            Key=f"hw5/partitions/part-{index}.json",
+        )
+        data = json.loads(response["Body"].read())
+        assert data["partition"] == index
+
+        for name in totals:
+            totals[name] += data[name]
+
+        for item in data["pair_counts"]:
+            pairs[tuple(item["skills"])] += item["count"]
+
+        parts.append(data)
+        print("PARTITION_LOADED:", index, flush=True)
+
+    assert all(
+        parts[i]["end_byte_exclusive"] == parts[i + 1]["start_byte"]
+        for i in range(3)
+    )
+    assert totals["source_rows"] == 10205102
+    assert totals["java_vacancies"] == 6100
+    assert totals["rows_with_skills"] == 4088
+    assert totals["malformed_rows"] == 0
+
+    ranking = sorted(pairs.items(), key=lambda item: (-item[1], item[0]))
+    top10 = [
+        {"skills": list(skills), "count": count}
+        for skills, count in ranking[:10]
+    ]
+
+    result = {
+        **totals,
+        "partitions": 4,
+        "distinct_pairs": len(pairs),
+        "top10": top10,
+        "pair_counts": [
+            {"skills": list(skills), "count": count}
+            for skills, count in ranking
+        ],
+    }
+
+    s3.put_object(
+        Bucket=bucket,
+        Key="hw5/results/parallel_reduced.json",
+        Body=json.dumps(result, ensure_ascii=False).encode("utf-8"),
+        ContentType="application/json",
+    )
+
+    for name, value in totals.items():
+        print(name.upper() + ":", value)
+
+    print("DISTINCT_PAIRS:", len(pairs))
+    print("TOP10_JSON:", json.dumps(top10, ensure_ascii=False))
+
+    for index, item in enumerate(top10, 1):
+        print(
+            f'{index}. {item["skills"][0]} + '
+            f'{item["skills"][1]}: {item["count"]}'
+        )
+
+    print("REDUCER_STATUS: PASSED", flush=True)
+kind: ConfigMap
+metadata:
+  name: hw5-reducer-script
+  namespace: hw5

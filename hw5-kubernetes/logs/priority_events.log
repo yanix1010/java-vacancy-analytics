@@ -1,0 +1,11 @@
+47s         Normal    Scheduled          pod/hw5-low-priority                 Successfully assigned hw5/hw5-low-priority to hw5-control-plane
+46s         Normal    Pulled             pod/hw5-low-priority                 Container image "hw5-skills:1" already present on machine and can be accessed by the pod
+46s         Normal    Created            pod/hw5-low-priority                 Container created
+46s         Normal    Started            pod/hw5-low-priority                 Container started
+31s         Warning   FailedScheduling   pod/hw5-high-priority                0/1 nodes are available: 1 Insufficient cpu. preemption: found a potential placement for pod on node hw5-control-plane, preempting 1 victims
+31s         Normal    Killing            pod/hw5-low-priority                 Stopping container worker
+31s         Normal    Preempted          pod/hw5-low-priority                 Preempted by pod e074d4ca-51aa-47e4-b189-e291c9b59461 on node hw5-control-plane
+1s          Normal    Scheduled          pod/hw5-high-priority                Successfully assigned hw5/hw5-high-priority to hw5-control-plane
+0s          Normal    Pulled             pod/hw5-high-priority                Container image "hw5-skills:1" already present on machine and can be accessed by the pod
+0s          Normal    Created            pod/hw5-high-priority                Container created
+0s          Normal    Started            pod/hw5-high-priority                Container started

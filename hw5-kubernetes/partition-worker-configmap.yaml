@@ -1,0 +1,170 @@
+apiVersion: v1
+data:
+  partition_worker.py: |
+    import csv
+    import itertools
+    import json
+    import os
+    import re
+    import time
+    from collections import Counter
+
+    import boto3
+    from botocore.config import Config
+    from mapreduce_engine import normalize_skills
+
+    BUCKET = "hh-lake"
+    KEY = "raw/vacancies_2024.csv"
+    CHUNK = 8 * 1024 * 1024
+
+    csv.field_size_limit(2**31 - 1)
+
+    s3 = boto3.client(
+        "s3",
+        endpoint_url=os.environ["RUSTFS_ENDPOINT"],
+        aws_access_key_id=os.environ["RUSTFS_ACCESS_KEY"],
+        aws_secret_access_key=os.environ["RUSTFS_SECRET_KEY"],
+        region_name="us-east-1",
+        config=Config(s3={"addressing_style": "path"}),
+    )
+
+    plan = json.loads(
+        s3.get_object(
+            Bucket=BUCKET,
+            Key="hw5/partition_plan.json",
+        )["Body"].read()
+    )
+
+    index = int(os.environ["JOB_COMPLETION_INDEX"])
+    start = plan["boundaries"][index]
+    stop = plan["boundaries"][index + 1]
+
+    assert 0 <= index < plan["partitions"]
+    assert 0 <= start < stop <= plan["object_size_bytes"]
+
+    def physical_lines():
+        pending = b""
+        first_line = index == 0
+
+        for offset in range(start, stop, CHUNK):
+            end = min(offset + CHUNK, stop) - 1
+            response = s3.get_object(
+                Bucket=BUCKET,
+                Key=KEY,
+                Range=f"bytes={offset}-{end}",
+            )
+            body = response["Body"]
+            try:
+                data = body.read()
+            finally:
+                body.close()
+
+            assert len(data) == end - offset + 1
+            parts = data.split(b"\n")
+
+            if len(parts) == 1:
+                pending += data
+                continue
+
+            raw = pending + parts[0] + b"\n"
+            yield raw.decode("utf-8-sig" if first_line else "utf-8")
+            first_line = False
+
+            for part in parts[1:-1]:
+                yield (part + b"\n").decode("utf-8")
+
+            pending = parts[-1]
+
+        if pending:
+            yield pending.decode("utf-8-sig" if first_line else "utf-8")
+
+    reader = csv.reader(physical_lines(), strict=True)
+
+    if index == 0:
+        header = next(reader)
+        assert header == plan["header"]
+    else:
+        header = plan["header"]
+
+    columns = {name.strip().lstrip("\ufeff"): i for i, name in enumerate(header)}
+    required = ("role", "name", "key_skills", "vacancy_id")
+    assert all(name in columns for name in required)
+
+    role_i = columns["role"]
+    name_i = columns["name"]
+    skills_i = columns["key_skills"]
+    max_i = max(columns[name] for name in required)
+
+    java_pattern = re.compile(r"(^|[^a-z])java([^a-z]|$)|джав")
+
+    pairs = Counter()
+    source_rows = 0
+    java_vacancies = 0
+    rows_with_skills = 0
+    malformed_rows = 0
+    started = time.perf_counter()
+
+    for row in reader:
+        if not row:
+            continue
+
+        source_rows += 1
+
+        if len(row) <= max_i:
+            malformed_rows += 1
+            continue
+
+        if row[role_i] != "Программист, разработчик":
+            continue
+
+        if not java_pattern.search(row[name_i].lower()):
+            continue
+
+        java_vacancies += 1
+        skills = normalize_skills(row[skills_i])
+
+        if not skills:
+            continue
+
+        rows_with_skills += 1
+        pairs.update(itertools.combinations(skills, 2))
+
+    result = {
+        "partition": index,
+        "start_byte": start,
+        "end_byte_exclusive": stop,
+        "bytes_read": stop - start,
+        "source_rows": source_rows,
+        "java_vacancies": java_vacancies,
+        "rows_with_skills": rows_with_skills,
+        "malformed_rows": malformed_rows,
+        "distinct_pairs": len(pairs),
+        "pair_counts": [
+            {"skills": list(skills), "count": count}
+            for skills, count in sorted(pairs.items())
+        ],
+        "elapsed_seconds": round(time.perf_counter() - started, 3),
+    }
+
+    output_key = f"hw5/partitions/part-{index}.json"
+
+    s3.put_object(
+        Bucket=BUCKET,
+        Key=output_key,
+        Body=json.dumps(result, ensure_ascii=False).encode("utf-8"),
+        ContentType="application/json",
+    )
+
+    print("PARTITION:", index)
+    print("BYTE_RANGE:", start, stop)
+    print("SOURCE_ROWS:", source_rows)
+    print("JAVA_VACANCIES:", java_vacancies)
+    print("ROWS_WITH_SKILLS:", rows_with_skills)
+    print("MALFORMED_ROWS:", malformed_rows)
+    print("DISTINCT_PAIRS:", len(pairs))
+    print("RESULT:", f"s3://{BUCKET}/{output_key}")
+    print("PARTITION_STATUS: PASSED", flush=True)
+kind: ConfigMap
+metadata:
+  name: hw5-partition-worker
+  namespace: hw5

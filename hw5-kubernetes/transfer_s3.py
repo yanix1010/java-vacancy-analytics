@@ -1,0 +1,118 @@
+import hashlib
+import os
+import time
+
+import boto3
+from botocore.config import Config
+
+BUCKET = "hh-lake"
+KEY = "raw/vacancies_2024.csv"
+PART_SIZE = 32 * 1024 * 1024
+
+config = Config(
+    region_name="us-east-1",
+    connect_timeout=15,
+    read_timeout=180,
+    retries={"mode": "standard", "max_attempts": 5},
+    s3={"addressing_style": "path"},
+)
+
+credentials = {
+    "aws_access_key_id": os.environ["RUSTFS_ACCESS_KEY"],
+    "aws_secret_access_key": os.environ["RUSTFS_SECRET_KEY"],
+    "config": config,
+}
+
+old = boto3.client(
+    "s3",
+    endpoint_url="http://host.docker.internal:9000",
+    **credentials,
+)
+new = boto3.client(
+    "s3",
+    endpoint_url="http://rustfs.hw5.svc.cluster.local:9000",
+    **credentials,
+)
+
+size = old.head_object(Bucket=BUCKET, Key=KEY)["ContentLength"]
+print("SOURCE_SIZE_BYTES:", size, flush=True)
+
+upload = new.create_multipart_upload(Bucket=BUCKET, Key=KEY)
+upload_id = upload["UploadId"]
+parts = []
+started = time.monotonic()
+source_hash = hashlib.sha256()
+
+try:
+    for start in range(0, size, PART_SIZE):
+        end = min(start + PART_SIZE, size) - 1
+
+        response = old.get_object(
+            Bucket=BUCKET,
+            Key=KEY,
+            Range=f"bytes={start}-{end}",
+        )
+        try:
+            data = response["Body"].read()
+        finally:
+            response["Body"].close()
+
+        assert len(data) == end - start + 1
+
+        source_hash.update(data)
+        number = len(parts) + 1
+
+        result = new.upload_part(
+            Bucket=BUCKET,
+            Key=KEY,
+            UploadId=upload_id,
+            PartNumber=number,
+            Body=data,
+        )
+
+        parts.append({
+            "PartNumber": number,
+            "ETag": result["ETag"],
+        })
+
+        if number % 25 == 0 or end + 1 == size:
+            print(
+                f"PROGRESS: {end + 1}/{size} bytes, "
+                f"parts={number}",
+                flush=True,
+            )
+
+    new.complete_multipart_upload(
+        Bucket=BUCKET,
+        Key=KEY,
+        UploadId=upload_id,
+        MultipartUpload={"Parts": parts},
+    )
+
+except BaseException:
+    new.abort_multipart_upload(
+        Bucket=BUCKET,
+        Key=KEY,
+        UploadId=upload_id,
+    )
+    raise
+
+destination_size = new.head_object(
+    Bucket=BUCKET,
+    Key=KEY,
+)["ContentLength"]
+
+assert destination_size == size
+
+for start in (0, size // 2, max(0, size - 1048576)):
+    end = min(start + 1048576, size) - 1
+    byte_range = f"bytes={start}-{end}"
+    a = old.get_object(Bucket=BUCKET, Key=KEY, Range=byte_range)["Body"].read()
+    b = new.get_object(Bucket=BUCKET, Key=KEY, Range=byte_range)["Body"].read()
+    assert a == b, f"Mismatch at {byte_range}"
+
+print("DESTINATION_SIZE_BYTES:", destination_size, flush=True)
+print("SOURCE_SHA256:", source_hash.hexdigest(), flush=True)
+print("SAMPLED_RANGES: MATCH", flush=True)
+print("TRANSFER_STATUS: PASSED", flush=True)
+print("ELAPSED_SECONDS:", round(time.monotonic() - started, 2), flush=True)

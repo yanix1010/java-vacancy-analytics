@@ -1,0 +1,8 @@
+Name:            hw5-pod-quota
+Namespace:       hw5-quota
+Resource         Used   Hard
+--------         ----   ----
+limits.memory    128Mi  512Mi
+pods             1      1
+requests.cpu     100m   500m
+requests.memory  64Mi   256Mi

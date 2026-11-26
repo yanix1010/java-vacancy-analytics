@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-partition-plan
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: planner
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -u
+            - /app/partition_plan.py
+          env:
+            - name: RUSTFS_ENDPOINT
+              value: http://rustfs.hw5.svc.cluster.local:9000
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
+            limits:
+              cpu: "2"
+              memory: 512Mi
+          volumeMounts:
+            - name: script
+              mountPath: /app/partition_plan.py
+              subPath: partition_plan.py
+      volumes:
+        - name: script
+          configMap:
+            name: hw5-partition-script

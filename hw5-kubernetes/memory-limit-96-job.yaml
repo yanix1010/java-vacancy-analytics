@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-memory-limit-96
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: skills
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - /bin/sh
+            - -c
+            - |
+              python -u /app/mapreduce_k8s.py --sizes 4 --max-bytes 134217728 --batch-size 500
+              code=$?
+              python -c 'from pathlib import Path; p=Path("/sys/fs/cgroup/memory.peak"); n=int(p.read_text()); print("CGROUP_PEAK_BYTES:", n); print("CGROUP_PEAK_MIB:", round(n/1048576, 2))'
+              exit "$code"
+          env:
+            - name: RUSTFS_ENDPOINT
+              value: http://host.docker.internal:9000
+            - name: PYTHONUNBUFFERED
+              value: "1"
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 250m
+              memory: 64Mi
+            limits:
+              cpu: "2"
+              memory: 96Mi

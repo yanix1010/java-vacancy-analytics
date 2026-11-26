@@ -1,0 +1,4 @@
+Internal bucket: hh-lake
+Transferred test bytes: 1048576
+Read-back verification: MATCH
+S3 write test: PASSED

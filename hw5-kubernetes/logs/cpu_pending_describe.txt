@@ -1,0 +1,51 @@
+Name:             hw5-cpu-pending-5h5h5
+Namespace:        hw5
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           batch.kubernetes.io/controller-uid=d24b9755-230a-48da-9e63-ec1ff75a449c
+                  batch.kubernetes.io/job-name=hw5-cpu-pending
+                  controller-uid=d24b9755-230a-48da-9e63-ec1ff75a449c
+                  job-name=hw5-cpu-pending
+Annotations:      <none>
+Status:           Pending
+IP:
+IPs:              <none>
+Controlled By:    Job/hw5-cpu-pending
+Containers:
+  cpu-test:
+    Image:      hw5-skills:1
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      python
+      -c
+      import time
+      time.sleep(300)
+
+    Limits:
+      memory:  128Mi
+    Requests:
+      cpu:        7500m
+      memory:     64Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pgdkw (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False
+Volumes:
+  kube-api-access-pgdkw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  14s   default-scheduler  0/1 nodes are available: 1 Insufficient cpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.

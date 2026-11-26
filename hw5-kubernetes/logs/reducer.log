@@ -1,0 +1,21 @@
+PARTITION_LOADED: 0
+PARTITION_LOADED: 1
+PARTITION_LOADED: 2
+PARTITION_LOADED: 3
+SOURCE_ROWS: 10205102
+JAVA_VACANCIES: 6100
+ROWS_WITH_SKILLS: 4088
+MALFORMED_ROWS: 0
+DISTINCT_PAIRS: 15755
+TOP10_JSON: [{"skills": ["java", "spring framework"], "count": 1965}, {"skills": ["java", "postgresql"], "count": 1625}, {"skills": ["postgresql", "spring framework"], "count": 1112}, {"skills": ["java", "sql"], "count": 1074}, {"skills": ["git", "java"], "count": 959}, {"skills": ["java", "spring boot"], "count": 947}, {"skills": ["java", "kafka"], "count": 884}, {"skills": ["docker", "java"], "count": 641}, {"skills": ["hibernate orm", "java"], "count": 637}, {"skills": ["git", "spring framework"], "count": 635}]
+1. java + spring framework: 1965
+2. java + postgresql: 1625
+3. postgresql + spring framework: 1112
+4. java + sql: 1074
+5. git + java: 959
+6. java + spring boot: 947
+7. java + kafka: 884
+8. docker + java: 641
+9. hibernate orm + java: 637
+10. git + spring framework: 635
+REDUCER_STATUS: PASSED

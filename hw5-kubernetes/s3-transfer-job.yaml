@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-s3-full-transfer
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: transfer
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -u
+            - /app/transfer_s3.py
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
+            limits:
+              cpu: "2"
+              memory: 512Mi
+          volumeMounts:
+            - name: script
+              mountPath: /app/transfer_s3.py
+              subPath: transfer_s3.py
+      volumes:
+        - name: script
+          configMap:
+            name: hw5-transfer-script

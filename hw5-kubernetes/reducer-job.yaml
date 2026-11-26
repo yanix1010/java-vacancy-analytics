@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hw5-reducer
+  namespace: hw5
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: reducer
+          image: hw5-skills:1
+          imagePullPolicy: Never
+          command:
+            - python
+            - -u
+            - /app/reducer.py
+          env:
+            - name: RUSTFS_ENDPOINT
+              value: http://rustfs.hw5.svc.cluster.local:9000
+          envFrom:
+            - secretRef:
+                name: rustfs-credentials
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          volumeMounts:
+            - name: script
+              mountPath: /app/reducer.py
+              subPath: reducer.py
+      volumes:
+        - name: script
+          configMap:
+            name: hw5-reducer-script

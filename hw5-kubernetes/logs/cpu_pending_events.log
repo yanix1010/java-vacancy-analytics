@@ -1,0 +1,2 @@
+LAST SEEN   TYPE      REASON             OBJECT                      MESSAGE
+14s         Warning   FailedScheduling   pod/hw5-cpu-pending-5h5h5   0/1 nodes are available: 1 Insufficient cpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
